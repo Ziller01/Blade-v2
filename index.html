@@ -19,7 +19,7 @@
 
   <body class="bg-brand-background text-brand-text-primary flex flex-col items-center justify-center gap-10 pb-10">
     <!---------------------------------------- Navbar ---------------------------------------->
-    <nav class="sticky min-h-16 top-0 z-50 w-full flex justify-center items-center shadow bg-black overflow-hidden0">
+    <nav class="sticky min-h-16 top-0 z-50 w-full flex justify-center items-center shadow bg-black">
       <div class="container mx-auto px-5 py-2 flex items-center justify-between">
         <a href="/" class="flex items-center justify-center gap-2 text-2xl font-bold group">
           <h1 class="group-hover:translate-y-1 duration-100">Mohamed</h1>
@@ -31,12 +31,12 @@
         <ul id="nav-list" class="max-lg:w-screen max-lg:h-[calc(100vh-3rem)] max-lg:absolute max-lg:-translate-y-[100vh] max-lg:bg-black max-lg:text-3xl top-16 left-0 z-50 duration-500 flex justify-center items-center">
           <ul class="w-fit flex flex-col lg:flex-row justify-center gap-5 lg:gap-7 max-lg:uppercase" id="nav-list">
             <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Ads">Ads</a>
-            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Street">Street</a>
-            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Games">Games</a>
             <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Fashion">Fashion</a>
-            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Gym">Gym</a>
             <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Food">Food</a>
-            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Story">Story</a>
+            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Gym">Gym</a>
+            <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Street">Street</a>
+            <!-- <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Games">Games</a> -->
+            <!-- <a onclick="toggleList()" class="max-lg:w-full max-lg:px-3 max-lg:py-2 text-center rounded-lg max-lg:border-2 border-brand-text-primary hover:text-brand-secondary/70 active:text-brand-secondary active:border-brand-secondary duration-100" href="#Story">Story</a> -->
           </ul>
         </ul>
       </div>
@@ -54,83 +54,21 @@
           <a href="#" class="px-3 py-2 text-2xl rounded-lg border-2 border-brand-secondary text-brand-secondary shadow-brand-secondary hover:shadow-all-md hover:bg-brand-primary/10 hover:border-brand-primary hover:text-brand-primary hover:shadow-brand-primary duration-100"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
-      <div class="w-10/12 lg:w-5/12 py-5 lg:p-10 flex justify-center items-center">
+      <div class="w-10/12 lg:w-5/12 py-5 lg:p-10 xl:p-15 flex justify-center items-center">
         <img src="./media/logo.png" alt="Logo" class="w-full aspect-square rounded-full bg-brand-primary/30 border-4 border-brand-primary shadow-all-lg shadow-brand-primary hover:shadow-all-2xl duration-300" />
       </div>
     </header>
-    <!------------------------------------- Section 1 - Ads ------------------------------------->
-    <section id="Ads" class="w-full px-5 container mx-auto flex flex-col justify-center items-center gap-5">
+    <!------------------------------------- Experiences ------------------------------------->
+    <!-- <section id="Experiences" class="w-full px-5 container mx-auto flex flex-col justify-center items-center gap-5">
       <header class="w-full text-brand-secondary flex justify-center items-center gap-3">
-        <i class="bi bi-dash-lg text-lg lg:text-2xl"></i>
-        <h1 class="text-2xl lg:text-4xl font-semibold uppercase">Advertisements</h1>
-        <i class="bi bi-dash-lg text-lg lg:text-2xl"></i>
+        <i class="w-full h-px bg-brand-secondary rounded-full"></i>
+        <h1 class="text-2xl lg:text-4xl font-semibold uppercase">Experiences</h1>
+        <i class="w-full h-px bg-brand-secondary rounded-full"></i>
       </header>
-      <article class="w-full flex flex-col justify-center items-center">
-        <ul class="w-full max-md:flex max-md:overflow-x-scroll md:overflow-auto grid grid-cols-2 lg:grid-cols-4 md:py-5 gap-5">
-          <!----- Viewable ----->
-          <!-- Video -->
-          <li class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!----- Hidden ----->
-          <!-- Video -->
-          <li id="ads" class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border md:hidden">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li id="ads" class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border md:hidden">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li id="ads" class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border md:hidden">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- Video -->
-          <li id="ads" class="w-[70vw] flex-none md:w-full rounded-lg shadow border border-brand-border md:hidden">
-            <video class="w-full rounded-lg object-cover" controls>
-              <source src="./media/ads 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </li>
-          <!-- ----------- -->
-        </ul>
-        <button id="ads-btn" class="cursor-pointer text-center max-md:hidden rounded-full px-3 py-1 text-brand-text-secondary hover:text-brand-text-primary/80 duration-100" onclick="toggleShow('ads')">Show more</button>
-        <button id="ads-btn" class="cursor-pointer text-center max-md:hidden rounded-full px-3 py-1 text-brand-text-secondary hover:text-brand-text-primary/80 duration-100 hidden" onclick="toggleShow('ads')">Show less</button>
-      </article>
-    </section>
+      <article class="w-full flex flex-col justify-center items-center"></article>
+    </section> -->
+    <!------------------------------------- Main Content ------------------------------------->
+    <main id="main" class="w-full flex flex-col justify-center items-center gap-10"></main>
     <!---------------------------------------- Scripts ---------------------------------------->
     <script src="./js/scripts.js"></script>
     <script>
