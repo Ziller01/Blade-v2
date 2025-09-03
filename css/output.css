@@ -260,6 +260,9 @@
   .w-full {
     width: 100%;
   }
+  .w-screen {
+    width: 100vw;
+  }
   .flex-none {
     flex: none;
   }
@@ -307,6 +310,9 @@
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
