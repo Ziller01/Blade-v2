@@ -116,7 +116,7 @@ window.addEventListener('load', () => {
     main.innerHTML += `
       <section id="${section.id}" class="w-full p-5 pt-0 scroll-mt-20 container mx-auto relative flex flex-col justify-center items-center gap-5">
         <header class="w-full flex justify-start items-center">
-          <h2 onclick="copy(text)" class="relative font-bold text-2xl lg:text-4xl text-brand-primary tracking-wide text-center uppercase transition-all duration-300 hover:scale-105 cursor-pointer">
+          <h2 onclick="copy(${section.id})" class="relative font-bold text-2xl lg:text-4xl text-brand-primary tracking-wide text-center uppercase transition-all duration-300 hover:scale-105 cursor-pointer">
             <i class="bi bi-hash text-brand-text-secondary text-3xl font-normal transition-all duration-300"></i>
             ${section.name}
           </h2>
