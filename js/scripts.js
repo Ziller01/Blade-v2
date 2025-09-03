@@ -40,7 +40,7 @@ async function copy(text = "") {
   const currentUrl = window.location.href;
   try {
     await navigator.clipboard.writeText(`${currentUrl}#${text}`);
-    return console.log('URL Copied to Clipboard.');
+    alert('#' + text + ' URL Copied to Clipboard.');
   } catch (err) {
     return console.error('Failed to copy URL:', err);
   }
