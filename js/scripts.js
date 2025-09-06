@@ -1,14 +1,6 @@
-const htmlElement = document.documentElement;
+AOS.init();
 
-function toggleDarkMode() {
-  if (htmlElement.classList.contains('dark')) {
-    htmlElement.classList.remove('dark');
-    // localStorage.theme = 'light';
-  } else {
-    htmlElement.classList.add('dark');
-    // localStorage.theme = 'dark';
-  }
-}
+// ---------------------------------------------------------------------------------------------------------
 
 function toggleShow(name) {
   let btns = document.querySelectorAll(`#${name}-btn`);
@@ -112,6 +104,7 @@ let sections = [
     ]
   },
 ]
+
 window.addEventListener('load', () => {
   const main = document.getElementById('main');
   sections.forEach(section => {
@@ -126,7 +119,7 @@ window.addEventListener('load', () => {
         <article class="w-full flex flex-col justify-center items-center">
           <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
             ${section.links.map((link, i) => {
-              return `
+      return `
                 <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '} w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary shadow-brand-primary/40 hover:shadow-all-sm hover:scale-105 duration-100 ">
                   <video class="w-full rounded-lg object-cover lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
                     <source src="${link}" type="video/mp4" />
