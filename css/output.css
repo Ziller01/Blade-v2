@@ -275,6 +275,9 @@
   .w-screen {
     width: 100vw;
   }
+  .max-w-\[70vw\] {
+    max-width: 70vw;
+  }
   .flex-none {
     flex: none;
   }

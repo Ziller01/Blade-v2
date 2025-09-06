@@ -126,15 +126,14 @@ window.addEventListener('load', () => {
         <article class="w-full flex flex-col justify-center items-center">
           <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
             ${section.links.map((link, i) => {
-      return `
-                      <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '}w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary shadow-brand-primary/40 hover:shadow-all-sm hover:scale-105 duration-100 ">
-                        
-                      <video class="w-full rounded-lg object-cover lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
-                          <source src="${link}" type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </li>
-                    `
+              return `
+                <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '} w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary shadow-brand-primary/40 hover:shadow-all-sm hover:scale-105 duration-100 ">
+                  <video class="w-full rounded-lg object-cover lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
+                    <source src="${link}" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </li>
+              `
     }).join('')}
           </ul>
           <button id="${section.id}-btn" class="cursor-pointer font-light text-center max-md:hidden ${section.links.length < 5 && 'hidden'} rounded-full mt-5 px-3 py-1 text-brand-text-secondary hover:text-brand-text-primary/80 hover:shadow-all-sm shadow-white duration-200" onclick="toggleShow('${section.id}')">Show more</button>
