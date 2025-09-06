@@ -45,7 +45,9 @@ async function copy(text = "") {
     return console.error('Failed to copy URL:', err);
   }
 }
-// --------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+
 let sections = [
   {
     id: "ads",
@@ -125,8 +127,9 @@ window.addEventListener('load', () => {
           <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
             ${section.links.map((link, i) => {
       return `
-                      <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '}w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary hover:-translate-y-1 duration-100">
-                        <video class="w-full rounded-lg object-cover" crossorigin="anonymous" controls>
+                      <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '}w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary shadow-brand-primary/40 hover:shadow-all-sm hover:scale-105 duration-100 ">
+                        
+                      <video class="w-full rounded-lg object-cover lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
                           <source src="${link}" type="video/mp4" />
                           Your browser does not support the video tag.
                         </video>
@@ -141,3 +144,33 @@ window.addEventListener('load', () => {
     `
   })
 })
+
+// ---------------------------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyVideos = document.querySelectorAll("video.lazy-video");
+
+  const videoObserver = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        // Find the source element within the video tag
+        const videoSource = entry.target.querySelector("source");
+        const videoURL = videoSource.getAttribute("data-src");
+
+        if (videoURL) {
+          // Set the source and load the video
+          videoSource.src = videoURL;
+          entry.target.load();
+        }
+
+        // Stop observing the video
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  // Start observing all videos with the lazy-video class
+  lazyVideos.forEach(function (video) {
+    videoObserver.observe(video);
+  });
+});
