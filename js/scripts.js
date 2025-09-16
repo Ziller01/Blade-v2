@@ -40,101 +40,85 @@ async function copy(text = "") {
 
 // ---------------------------------------------------------------------------------------------------------
 
-let sections = [
-  {
-    id: "ads",
-    name: "Ads",
-    links: [
-      './media/ads/(1).mp4',
-      './media/ads/(2).mp4',
-      './media/ads/(3).mp4',
-      './media/ads/(4).mp4',
-      './media/ads/(5).mp4',
-    ]
-  },
-  {
-    id: "fashion",
-    name: "Fashion",
-    links: [
-      './media/fashion/(1).mp4',
-      './media/fashion/(2).mp4',
-      './media/fashion/(3).mp4',
-      './media/fashion/(4).mp4',
-      './media/fashion/(5).mp4',
-      './media/fashion/(6).mp4',
-      './media/fashion/(7).mp4',
-      './media/fashion/(8).mp4',
-      './media/fashion/(9).mp4',
-      './media/fashion/(10).mp4',
-    ]
-  },
-  {
-    id: "food",
-    name: "Food",
-    links: [
-      './media/food/(1).mp4',
-      './media/food/(2).mp4',
-      './media/food/(3).mp4',
-      './media/food/(4).mp4',
-      './media/food/(5).mp4',
-      './media/food/(6).mp4',
-    ]
-  },
-  {
-    id: "gym",
-    name: "Gym",
-    links: [
-      './media/gym/(1).mp4',
-      './media/gym/(2).mp4',
-      './media/gym/(3).mp4',
-      './media/gym/(4).mp4',
-      './media/gym/(5).mp4',
-    ]
-  },
-  {
-    id: "street",
-    name: "Street",
-    links: [
-      './media/street/(1).mp4',
-      './media/street/(2).mp4',
-      './media/street/(3).mp4',
-      './media/street/(4).mp4',
-      './media/street/(5).mp4',
-      './media/street/(6).mp4',
-    ]
-  },
-]
+const main = document.getElementById('main');
+const items = document.getElementById('items');
 
-window.addEventListener('load', () => {
-  const main = document.getElementById('main');
-  sections.forEach(section => {
-    main.innerHTML += `
-      <section id="${section.id}" class="w-full p-5 pt-0 scroll-mt-20 container mx-auto relative flex flex-col justify-center items-center gap-5">
-        <header class="w-full flex justify-start items-center">
-          <h2 onclick="copy('${section.id}')" class="relative font-bold text-2xl lg:text-4xl text-brand-primary tracking-wide text-center uppercase transition-all duration-300 hover:scale-105 cursor-pointer">
-            <i class="bi bi-hash text-brand-text-secondary text-3xl font-normal transition-all duration-300"></i>
-            ${section.name}
-          </h2>
-        </header>
-        <article class="w-full flex flex-col justify-center items-center">
-          <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
-            ${section.links.map((link, i) => {
-      return `
-                <li id="${(i + 1) > 4 && section.id + '-i'}" class="${(i + 1) > 4 && 'md:hidden '} w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary shadow-brand-primary/40 hover:shadow-all-sm hover:scale-105 duration-100 ">
-                  <video class="w-full rounded-lg object-cover lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
-                    <source src="${link}" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </li>
-              `
-    }).join('')}
-          </ul>
-          <button id="${section.id}-btn" class="cursor-pointer font-light text-center max-md:hidden ${section.links.length < 5 && 'hidden'} rounded-full mt-5 px-3 py-1 text-brand-text-secondary hover:text-brand-text-primary/80 hover:shadow-all-sm shadow-white duration-200" onclick="toggleShow('${section.id}')">Show more</button>
-          <button id="${section.id}-btn" class="cursor-pointer font-light text-center max-md:hidden rounded-full mt-5 px-3 py-1 text-brand-text-secondary hover:text-brand-text-primary/80 hover:shadow-all-sm shadow-white duration-200 hidden" onclick="toggleShow('${section.id}')">Show less</button>
-        </article>
-      </section>
-    `
+function setVideos() {
+
+  let hash = window.location.hash.slice(1);
+
+  //? >>======================================================> Set Active Btn
+
+  const btns = document.querySelectorAll('#btn');
+  btns.forEach(btn => {
+    if (btn.attributes.getNamedItem('href').value == `#${sections.find(f => f.id == hash)?.id || sections[0].id}`) {
+      btn.classList.add('text-brand-primary')
+    } else {
+      btn.classList.remove('text-brand-primary')
+    }
   })
+
+  //? >>======================================================> Set Videos
+
+  main.innerHTML = ''
+  let section = sections.find(f => f.id == hash) || sections[0]
+  if (!section) return
+  if (!section.links?.[0]) return main.innerHTML = '404 | Videos Not Found!'
+  main.innerHTML += `
+        <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
+            ${section.links.map((link, i) => {
+    return `
+                    <li class="w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100 ">
+                        <video class="w-full rounded-lg lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
+                            <source src="${link}" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </li>
+                `
+  }).join('')}
+        </ul>
+    `
+  //? >>======================================================<<
+}
+
+window.addEventListener('hashchange', () => { setVideos() })
+window.addEventListener('load', () => {
+
+  //? >>======================================================> Load Section Items
+
+  sections.map((m, i) => { items.innerHTML += `<a id='btn' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="${(i + 1) * 100}" class="text-center rounded-lg hover:text-brand-primary/70 duration-100" href="#${m.id}">${document.documentElement.lang == 'ar' ? m.name_ar : m.name}</a>` })
+
+  //? >>======================================================> Load Videos
+
+  setVideos()
+
+  //? >>======================================================> Load Reviews
+
+  const reviews = document.getElementById('reviews');
+  reviewsData.forEach(review => {
+    reviews.innerHTML += `
+        <div class="w-full p-6 rounded-lg relative bg-black text-gray-800 dark:text-gray-200">
+        <div class="w-full flex flex-col">
+        <span class="w-full flex justify-start items-center text-4xl text-brand-primary"><i class="bi bi-quote"></i></span>
+        <p class="text-lg md:text-xl font-normal mb-6">${review.review}</p>
+        </div>
+        <div class="w-full flex items-center mt-4">
+        <div class="flex-shrink-0 w-12 h-12 rounded-full mr-4 bg-gray-600 overflow-hidden">
+        <img src="${review.autherImage}" class="w-full aspect-square object-cover" />
+        </div>
+        <div>
+        <p class="font-bold">${review.auther}</p>
+        <div class="flex justify-center items-center">
+        ${[1, 2, 3, 4, 5].map((m, i) => { return `<span class="${(i + 1) <= review.stars ? "text-brand-primary" : "text-gray-400"}">&#9733;</span>` }).join("")}
+        </div>
+        </div>
+        </div>
+        </div>
+      `
+  })
+
+  //? >>======================================================<<
+
 })
 
 // ---------------------------------------------------------------------------------------------------------
