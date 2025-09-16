@@ -1,6 +1,6 @@
 let sections = [
     {
-        id: "ads",
+        id: "adv",
         name: "Ads",
         name_ar: "اعلانات",
         links: [
