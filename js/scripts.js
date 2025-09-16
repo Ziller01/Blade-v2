@@ -95,27 +95,7 @@ window.addEventListener('load', () => {
   //? >>======================================================> Load Reviews
 
   const reviews = document.getElementById('reviews');
-  reviewsData.forEach(review => {
-    reviews.innerHTML += `
-        <div class="w-full p-6 rounded-lg relative bg-black text-gray-800 dark:text-gray-200">
-        <div class="w-full flex flex-col">
-        <span class="w-full flex justify-start items-center text-4xl text-brand-primary"><i class="bi bi-quote"></i></span>
-        <p class="text-lg md:text-xl font-normal mb-6">${review.review}</p>
-        </div>
-        <div class="w-full flex items-center mt-4">
-        <div class="flex-shrink-0 w-12 h-12 rounded-full mr-4 bg-gray-600 overflow-hidden">
-        <img src="${review.autherImage}" class="w-full aspect-square object-cover" />
-        </div>
-        <div>
-        <p class="font-bold">${review.auther}</p>
-        <div class="flex justify-center items-center">
-        ${[1, 2, 3, 4, 5].map((m, i) => { return `<span class="${(i + 1) <= review.stars ? "text-brand-primary" : "text-gray-400"}">&#9733;</span>` }).join("")}
-        </div>
-        </div>
-        </div>
-        </div>
-      `
-  })
+  reviewsData.forEach(review => { reviews.innerHTML += `<img src='${review}' alt='review' class="w-full object-cover rounded-lg" />` })
 
   //? >>======================================================<<
 
