@@ -1,14 +1,14 @@
 let sections = [
     {
-        id: "adv",
+        id: "aaa",
         name: "Ads",
         name_ar: "اعلانات",
         links: [
-            '/media/adv/(1).mp4',
-            '/media/adv/(2).mp4',
-            '/media/adv/(3).mp4',
-            '/media/adv/(4).mp4',
-            '/media/adv/(5).mp4',
+            '/media/aaa/(1).mp4',
+            '/media/aaa/(2).mp4',
+            '/media/aaa/(3).mp4',
+            '/media/aaa/(4).mp4',
+            '/media/aaa/(5).mp4',
         ]
     },
     {

@@ -64,20 +64,43 @@ function setVideos() {
   let section = sections.find(f => f.id == hash) || sections[0]
   if (!section) return
   if (!section.links?.[0]) return main.innerHTML = '404 | Videos Not Found!'
+
+  // const videosContainer = document.querySelector('#main'); // Assuming there's a container element
+  // console.log(videosContainer);
+  // section.links.forEach(link => {
+  //   const videoLi = document.createElement('li');
+  //   videoLi.className = "w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100";
+
+  //   const videoElement = document.createElement('video');
+  //   videoElement.className = "w-full rounded-lg lazy-video";
+  //   videoElement.controls = true;
+  //   videoElement.crossOrigin = "anonymous";
+  //   videoElement.poster = "./media/shorts_img.png";
+
+  //   const videoSource = document.createElement('source');
+  //   videoSource.src = link;
+  //   videoSource.type = "video/mp4";
+
+  //   videoElement.appendChild(videoSource);
+  //   videoLi.appendChild(videoElement);
+  //   videosContainer.appendChild(videoLi)
+  // });
+
   main.innerHTML += `
-        <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
-            ${section.links.map((link, i) => {
+      <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
+          ${section.links.map((link, i) => {
     return `
-                    <li class="w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100 ">
-                        <video class="w-full rounded-lg lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
-                            <source src="${link}" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </li>
-                `
+                  <li class="w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100 ">
+                      <video class="w-full rounded-lg lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
+                          <source src="${link}" type="video/mp4" />
+                          Your browser does not support the video tag.
+                      </video>
+                  </li>
+              `
   }).join('')}
-        </ul>
-    `
+      </ul>
+  `
+  solveVideoImg()
   //? >>======================================================<<
 }
 
@@ -100,6 +123,24 @@ window.addEventListener('load', () => {
   //? >>======================================================<<
 
 })
+
+function solveVideoImg() {
+  const videos = document.querySelectorAll("video");
+  videos.forEach(video => {
+    video.addEventListener("loadeddata", function () {
+      video.currentTime = 1;
+      video.addEventListener("seeked", function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext("2d");
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageDataURL = canvas.toDataURL("image/jpeg");
+        video.poster = imageDataURL;
+      }, { once: true }); // Use { once: true } to remove the listener after it runs once
+    });
+  })
+}
 
 // ---------------------------------------------------------------------------------------------------------
 
