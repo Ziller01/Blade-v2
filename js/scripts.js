@@ -2,44 +2,6 @@ AOS.init();
 
 // ---------------------------------------------------------------------------------------------------------
 
-function toggleShow(name) {
-  let btns = document.querySelectorAll(`#${name}-btn`);
-  let q = document.querySelectorAll(`#${name}-i`);
-  q.forEach(e => {
-    e.classList.toggle('md:hidden')
-  })
-  btns.forEach(b => {
-    b.classList.toggle('hidden')
-  })
-}
-
-function toggleList() {
-
-  let btn = document.getElementById(`nav-toggle`);
-  let list = document.getElementById(`nav-list`);
-
-  btn.classList.toggle('bi-x-lg')
-
-  if (list.classList.contains('max-lg:translate-y-0')) {
-    list.classList.remove('max-lg:translate-y-0')
-  } else {
-    list.classList.add('max-lg:translate-y-0')
-  }
-
-}
-
-async function copy(text = "") {
-  const currentUrl = window.location.href;
-  try {
-    await navigator.clipboard.writeText(`${currentUrl}#${text}`);
-    alert('#' + text + ' URL Copied to Clipboard.');
-  } catch (err) {
-    return console.error('Failed to copy URL:', err);
-  }
-}
-
-// ---------------------------------------------------------------------------------------------------------
-
 const main = document.getElementById('main');
 const items = document.getElementById('items');
 
@@ -64,27 +26,6 @@ function setVideos() {
   let section = sections.find(f => f.id == hash) || sections[0]
   if (!section) return
   if (!section.links?.[0]) return main.innerHTML = '404 | Videos Not Found!'
-
-  // const videosContainer = document.querySelector('#main'); // Assuming there's a container element
-  // console.log(videosContainer);
-  // section.links.forEach(link => {
-  //   const videoLi = document.createElement('li');
-  //   videoLi.className = "w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100";
-
-  //   const videoElement = document.createElement('video');
-  //   videoElement.className = "w-full rounded-lg lazy-video";
-  //   videoElement.controls = true;
-  //   videoElement.crossOrigin = "anonymous";
-  //   videoElement.poster = "./media/shorts_img.png";
-
-  //   const videoSource = document.createElement('source');
-  //   videoSource.src = link;
-  //   videoSource.type = "video/mp4";
-
-  //   videoElement.appendChild(videoSource);
-  //   videoLi.appendChild(videoElement);
-  //   videosContainer.appendChild(videoLi)
-  // });
 
   main.innerHTML += `
       <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
