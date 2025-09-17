@@ -31,8 +31,8 @@ function setVideos() {
       <ul class="w-full max-md:flex max-md:overflow-x-scroll grid grid-cols-2 lg:grid-cols-4 gap-5">
           ${section.links.map((link, i) => {
     return `
-                  <li class="w-[70vw] flex-none md:w-full rounded-lg border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100 ">
-                      <video class="w-full rounded-lg lazy-video" crossorigin="anonymous" controls poster="./media/shorts_img.png">
+                  <li class="w-[70vw] flex-none md:w-full rounded-2xl border border-brand-border hover:border-brand-primary/50 shadow-brand-primary/40 hover:shadow-all-sm duration-100 ">
+                      <video class="w-full rounded-2xl lazy-video" crossorigin="anonymous" controls>
                           <source src="${link}" type="video/mp4" />
                           Your browser does not support the video tag.
                       </video>
@@ -69,7 +69,7 @@ function solveVideoImg() {
   const videos = document.querySelectorAll("video");
   videos.forEach(video => {
     video.addEventListener("loadeddata", function () {
-      video.currentTime = 1;
+      video.currentTime = 0.2;
       video.addEventListener("seeked", function () {
         const canvas = document.createElement("canvas");
         canvas.width = video.videoWidth;
@@ -77,7 +77,7 @@ function solveVideoImg() {
         const context = canvas.getContext("2d");
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         const imageDataURL = canvas.toDataURL("image/jpeg");
-        video.poster = imageDataURL;
+        video.poster = imageDataURL;        
       }, { once: true }); // Use { once: true } to remove the listener after it runs once
     });
   })

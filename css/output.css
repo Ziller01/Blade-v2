@@ -24,6 +24,7 @@
     --font-weight-bold: 700;
     --tracking-widest: 0.1em;
     --radius-lg: 0.5rem;
+    --radius-2xl: 1rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: 'Rubik', 'Tajawal', 'Baloo Bhaijaan 2', sans-serif;
@@ -314,6 +315,9 @@
   }
   .overflow-x-hidden {
     overflow-x: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
