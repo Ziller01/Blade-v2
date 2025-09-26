@@ -29,8 +29,8 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: 'Rubik', 'Tajawal', 'Baloo Bhaijaan 2', sans-serif;
     --default-mono-font-family: var(--font-mono);
-    --color-brand-primary: #FF0000;
-    --color-brand-secondary: #CC0000;
+    --color-brand-primary: #E8A23D;
+    --color-brand-secondary: #ca9a55;
     --color-brand-background: #060606;
     --color-brand-text-primary: #F0F0F0;
     --color-brand-text-secondary: #888888;
@@ -237,9 +237,6 @@
   .grid {
     display: grid;
   }
-  .hidden {
-    display: none;
-  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -357,7 +354,7 @@
     background-color: var(--color-brand-background);
   }
   .bg-brand-primary\/30 {
-    background-color: color-mix(in srgb, #FF0000 30%, transparent);
+    background-color: color-mix(in srgb, #E8A23D 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-brand-primary) 30%, transparent);
     }
@@ -459,19 +456,19 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-brand-primary {
-    --tw-shadow-color: #FF0000;
+    --tw-shadow-color: #E8A23D;
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, var(--color-brand-primary) var(--tw-shadow-alpha), transparent);
     }
   }
   .shadow-brand-primary\/40 {
-    --tw-shadow-color: color-mix(in srgb, #FF0000 40%, transparent);
+    --tw-shadow-color: color-mix(in srgb, #E8A23D 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-brand-primary) 40%, transparent) var(--tw-shadow-alpha), transparent);
     }
   }
   .shadow-brand-secondary {
-    --tw-shadow-color: #CC0000;
+    --tw-shadow-color: #ca9a55;
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, var(--color-brand-secondary) var(--tw-shadow-alpha), transparent);
     }
@@ -533,7 +530,7 @@
   .hover\:border-brand-primary\/50 {
     &:hover {
       @media (hover: hover) {
-        border-color: color-mix(in srgb, #FF0000 50%, transparent);
+        border-color: color-mix(in srgb, #E8A23D 50%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           border-color: color-mix(in oklab, var(--color-brand-primary) 50%, transparent);
         }
@@ -550,7 +547,7 @@
   .hover\:bg-brand-primary\/10 {
     &:hover {
       @media (hover: hover) {
-        background-color: color-mix(in srgb, #FF0000 10%, transparent);
+        background-color: color-mix(in srgb, #E8A23D 10%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-brand-primary) 10%, transparent);
         }
@@ -581,7 +578,7 @@
   .hover\:text-brand-primary\/70 {
     &:hover {
       @media (hover: hover) {
-        color: color-mix(in srgb, #FF0000 70%, transparent);
+        color: color-mix(in srgb, #E8A23D 70%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           color: color-mix(in oklab, var(--color-brand-primary) 70%, transparent);
         }
@@ -615,7 +612,7 @@
   .hover\:shadow-brand-primary {
     &:hover {
       @media (hover: hover) {
-        --tw-shadow-color: #FF0000;
+        --tw-shadow-color: #E8A23D;
         @supports (color: color-mix(in lab, red, red)) {
           --tw-shadow-color: color-mix(in oklab, var(--color-brand-primary) var(--tw-shadow-alpha), transparent);
         }
@@ -630,12 +627,6 @@
       }
     }
   }
-  .max-lg\:translate-y-0 {
-    @media (width < 64rem) {
-      --tw-translate-y: calc(var(--spacing) * 0);
-      translate: var(--tw-translate-x) var(--tw-translate-y);
-    }
-  }
   .max-md\:flex {
     @media (width < 48rem) {
       display: flex;
@@ -644,11 +635,6 @@
   .max-md\:overflow-x-scroll {
     @media (width < 48rem) {
       overflow-x: scroll;
-    }
-  }
-  .md\:hidden {
-    @media (width >= 48rem) {
-      display: none;
     }
   }
   .md\:w-full {
